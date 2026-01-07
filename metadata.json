@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Nilkanth Pro Suite",
+  "description": "Professional Management Suite for Nilkanth Apartment Section-1, featuring digital receipts, IndexedDB persistence, and financial orchestration.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
