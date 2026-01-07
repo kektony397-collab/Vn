@@ -1,5 +1,4 @@
-
-import Dexie, { Table } from 'dexie';
+import { Dexie, type Table } from 'dexie';
 import { ReceiptRecord, InvoiceRecord } from './types';
 
 // AppDatabase extends Dexie to provide a typed interface for NilkanthProDB
@@ -11,8 +10,8 @@ export class AppDatabase extends Dexie {
     super('NilkanthProDB');
     
     // Define the database schema and versioning. 
-    // This resolves the "Property 'version' does not exist" error by ensuring 
-    // the instance is correctly initialized with Dexie's versioning system.
+    // Fixed: Using the named export Dexie ensures that inheritance and instance methods like .version() 
+    // are correctly typed and recognized by the TypeScript compiler.
     this.version(1).stores({
       receipts: '++id, receiptNo, customerName, date, houseNo, totalAmount',
       invoices: '++id, customerName, amount, date'

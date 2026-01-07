@@ -1,13 +1,13 @@
-
-import { GoogleGenAI, Type } from "@google/genai";
-
-// Initialize the Google GenAI client with the provided API key
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+import { GoogleGenAI } from "@google/genai";
 
 /**
  * Uses Gemini AI to transform legacy HTML structures into modern React components.
  */
 export const migrateHtmlToReact = async (htmlSnippet: string): Promise<string> => {
+  // Create a new GoogleGenAI instance right before making an API call to ensure 
+  // it uses the most up-to-date API key from the environment.
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
   // Use gemini-3-pro-preview for complex coding tasks like code migration
   const response = await ai.models.generateContent({
     model: 'gemini-3-pro-preview',
