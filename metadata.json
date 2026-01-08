@@ -1,6 +1,6 @@
 {
   "name": "Nilkanth Pro Suite",
-  "description": "Professional Management Suite for Nilkanth Apartment Section-1, featuring digital receipts, IndexedDB persistence, and financial orchestration.",
+  "description": "Enterprise-grade Society Management ERP for Nilkanth Apartment. Features digital receipt generation, IndexedDB persistence, financial analytics, and AI migration tools.",
   "requestFramePermissions": [
     "camera"
   ]

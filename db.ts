@@ -1,19 +1,18 @@
-import { Dexie, type Table } from 'dexie';
+
+import Dexie, { type Table } from 'dexie';
 import { ReceiptRecord, InvoiceRecord } from './types';
 
-// AppDatabase extends Dexie to provide a typed interface for NilkanthProDB
+// Use default import for Dexie to ensure proper prototype inheritance for version() and transaction()
 export class AppDatabase extends Dexie {
   receipts!: Table<ReceiptRecord>;
   invoices!: Table<InvoiceRecord>;
 
   constructor() {
-    super('NilkanthProDB');
+    super('NilkanthProERP');
     
-    // Define the database schema and versioning. 
-    // Fixed: Using the named export Dexie ensures that inheritance and instance methods like .version() 
-    // are correctly typed and recognized by the TypeScript compiler.
-    this.version(1).stores({
-      receipts: '++id, receiptNo, customerName, date, houseNo, totalAmount',
+    // Define database schema
+    this.version(2).stores({
+      receipts: '++id, fy, receiptNo, customerName, houseNo, totalAmount, date',
       invoices: '++id, customerName, amount, date'
     });
   }

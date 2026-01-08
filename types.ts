@@ -6,6 +6,7 @@ export interface ReceiptItem {
 
 export interface ReceiptRecord {
   id?: number;
+  fy: string;
   receiptNo: string;
   date: string;
   customerName: string;
@@ -14,11 +15,13 @@ export interface ReceiptRecord {
   items: ReceiptItem[];
   totalAmount: number;
   currencyWords: string;
-  chequeDetails?: string;
-  bankName?: string;
+  chequeDetails?: {
+    date: string;
+    bank: string;
+  };
+  createdAt: number;
 }
 
-// Added InvoiceRecord to support the Financials ledger
 export interface InvoiceRecord {
   id?: number;
   customerName: string;
@@ -26,10 +29,4 @@ export interface InvoiceRecord {
   description: string;
   date: string;
   currencyWords: string;
-}
-
-export interface MigrationMapping {
-  legacy: string;
-  modern: string;
-  significance: string;
 }
